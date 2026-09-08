@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Victor Wonder Bakery - Fresh bread, pastries and cakes in Agbado, Lagos.">
+  <title>Victor Wonder Bakery | Agbado, Lagos</title>
+
+  <style>
+    :root {
+      --orange: #F4A261;
+      --orange-dark: #d97d32;
+      --brown: #3B2117;
+      --brown-light: #6d4b3b;
+      --cream: #FFF9F2;
+      --cream-dark: #F4E4D3;
+      --white: #fff;
+      --border: #ead9c9;
+      --shadow: 0 20px 50px rgba(59, 33, 23, 0.10);
+      --radius: 24px;
+      --max: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--brown);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: #b75f29;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      font-size: clamp(2.2rem, 8vw, 4rem);
+      line-height: 1;
+      letter-spacing: -2px;
+      font-weight: 900;
+    }
+
+    .section-text {
+      max-width: 600px;
+      margin-top: 18px;
+      color: var(--brown-light);
+    }
+
+    /* ================= NAVIGATION ================= */
+
+    header {
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      width: 100%;
+      transition: .3s ease;
+    }
+
+    header.scrolled {
+      background: rgba(255, 249, 242, .96);
+      box-shadow: 0 5px 25px rgba(59, 33, 23, .08);
+      backdrop-filter: blur(12px);
+    }
+
+    nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      color: white;
+      font-size: 21px;
+      font-weight: 900;
+      letter-spacing: -.7px;
+    }
+
+    .logo span {
+      color: var(--orange);
+    }
+
+    header.scrolled .logo {
+      color: var(--brown);
+    }
+
+    .desktop-nav {
+      display: none;
+      align-items: center;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .desktop-nav a {
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      transition: .2s;
+    }
+
+    header.scrolled .desktop-nav a {
+      color: var(--brown);
+    }
+
+    .desktop-nav a:hover {
+      color: var(--orange) !important;
+    }
+
+    .nav-order {
+      display: none;
+      padding: 11px 20px;
+      border-radius: 50px;
+      background: var(--orange);
+      color: var(--brown) !important;
+    }
+
+    .menu-button {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 12px;
+      background: rgba(255,255,255,.13);
+      color: white;
+      cursor: pointer;
+      font-size: 23px;
+    }
+
+    header.scrolled .menu-button {
+      background: var(--cream-dark);
+      color: var(--brown);
+    }
+
+    .mobile-nav {
+      position: absolute;
+      top: 70px;
+      left: 16px;
+      right: 16px;
+      padding: 12px;
+      border-radius: 18px;
+      background: white;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: .25s ease;
+    }
+
+    .mobile-nav.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .mobile-nav a {
+      display: block;
+      padding: 14px 12px;
+      border-bottom: 1px solid var(--border);
+      font-weight: 700;
+    }
+
+    .mobile-nav a:last-child {
+      border: 0;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      min-height: 100svh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      color: white;
+      background:
+        linear-gradient(110deg, rgba(59,33,23,.96), rgba(59,33,23,.55)),
+        url("https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=2000&q=85")
+        center / cover;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding-top: 70px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 8px 14px;
+      border: 1px solid rgba(244,162,97,.45);
+      border-radius: 50px;
+      background: rgba(244,162,97,.12);
+      color: var(--orange);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      max-width: 820px;
+      font-size: clamp(3.2rem, 14vw, 7.5rem);
+      line-height: .91;
+      letter-spacing: -6px;
+      font-weight: 900;
+    }
+
+    .hero h1 span {
+      color: var(--orange);
+    }
+
+    .hero-description {
+      max-width: 590px;
+      margin-top: 25px;
+      color: rgba(255,255,255,.82);
+      font-size: 17px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      min-height: 52px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 25px;
+      border-radius: 50px;
+      font-weight: 800;
+      transition: .2s;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: var(--brown);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,.4);
+      background: rgba(255,255,255,.08);
+      color: white;
+    }
+
+    /* ================= MENU ================= */
+
+    .menu-heading {
+      margin-bottom: 40px;
+    }
+
+    .menu-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .menu-card {
+      overflow: hidden;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 30px rgba(59,33,23,.06);
+      transition: .25s;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .menu-card img {
+      height: 230px;
+      object-fit: cover;
+    }
+
+    .menu-info {
+      padding: 22px;
+    }
+
+    .menu-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .menu-name {
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .menu-price {
+      white-space: nowrap;
+      color: #b75f29;
+      font-weight: 900;
+    }
+
+    .menu-description {
+      margin-top: 8px;
+      color: var(--brown-light);
+      font-size: 14px;
+    }
+
+    .order-link {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: underline;
+      text-decoration-color: var(--orange);
+      text-decoration-thickness: 3px;
+      text-underline-offset: 5px;
+    }
+
+    /* ================= ABOUT ================= */
+
+    .about {
+      background: var(--cream-dark);
+    }
+
+    .about-grid {
+      display: grid;
+      gap: 45px;
+      align-items: center;
+    }
+
+    .about-image-wrap {
+      position: relative;
+    }
+
+    .about-image {
+      height: 470px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .about-stat {
+      position: absolute;
+      right: -5px;
+      bottom: -18px;
+      padding: 18px 22px;
+      border-radius: 18px;
+      background: var(--brown);
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .about-stat strong {
+      display: block;
+      color: var(--orange);
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .about-stat span {
+      display: block;
+      margin-top: 5px;
+      color: rgba(255,255,255,.7);
+      font-size: 12px;
+    }
+
+    .about-copy p {
+      margin-top: 18px;
+      color: var(--brown-light);
+    }
+
+    .about-features {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 12px;
+      margin-top: 28px;
+      padding-top: 25px;
+      border-top: 1px solid #d8c1ad;
+    }
+
+    .about-feature strong {
+      display: block;
+      font-size: 21px;
+    }
+
+    .about-feature span {
+      color: var(--brown-light);
+      font-size: 11px;
+    }
+
+    /* ================= TESTIMONIALS ================= */
+
+    .testimonials {
+      background: white;
+    }
+
+    .testimonial-heading {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      gap: 18px;
+      margin-top: 42px;
+    }
+
+    .testimonial {
+      padding: 27px;
+      border-radius: var(--radius);
+      background: var(--orange-light);
+    }
+
+    .stars {
+      color: #d77b31;
+      letter-spacing: 3px;
+    }
+
+    .testimonial-text {
+      margin-top: 16px;
+      font-size: 16px;
+      line-height: 1.8;
+      font-weight: 600;
+    }
+
+    .customer {
+      margin-top: 22px;
+    }
+
+    .customer strong {
+      display: block;
+    }
+
+    .customer span {
+      color: var(--brown-light);
+      font-size: 13px;
+    }
+
+    /* ================= CONTACT ================= */
+
+    .contact-section {
+      padding-top: 80px;
+      padding-bottom: 35px;
+    }
+
+    .contact-box {
+      overflow: hidden;
+      border-radius: 30px;
+      background: var(--brown);
+    }
+
+    .contact-grid {
+      display: grid;
+    }
+
+    .contact-info {
+      padding: 40px 25px;
+      color: white;
+    }
+
+    .contact-info .eyebrow {
+      color: var(--orange);
+    }
+
+    .contact-info .section-title {
+      color: white;
+    }
+
+    .contact-info > p {
+      max-width: 520px;
+      margin-top: 18px;
+      color: rgba(255,255,255,.7);
+    }
+
+    .contact-details {
+      display: grid;
+      gap: 22px;
+      margin-top: 30px;
+    }
+
+    .contact-detail strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .contact-detail span,
+    .contact-detail a {
+      color: rgba(255,255,255,.7);
+    }
+
+    .contact-detail a:hover {
+      color: var(--orange);
+    }
+
+    .contact-form-box {
+      padding: 35px 25px;
+      background: var(--orange);
+    }
+
+    .contact-form-box h3 {
+      font-size: 26px;
+      font-weight: 900;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 13px;
+      margin-top: 22px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 15px 16px;
+      border: 0;
+      border-radius: 13px;
+      outline: none;
+      background: white;
+      color: var(--brown);
+    }
+
+    .form-control:focus {
+      box-shadow: 0 0 0 3px rgba(59,33,23,.2);
+    }
+
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .submit {
+      width: 100%;
+      padding: 16px;
+      border: 0;
+      border-radius: 13px;
+      background: var(--brown);
+      color: white;
+      font-weight: 900;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .submit:hover {
+      background: #542e20;
+      transform: translateY(-2px);
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      padding: 30px 0;
+      text-align: center;
+      color: var(--brown-light);
+      font-size: 13px;
+    }
+
+    /* ================= DESKTOP ================= */
+
+    @media (min-width: 700px) {
+      .container {
+        width: min(calc(100% - 64px), var(--max));
+      }
+
+      .hero-actions {
+        flex-direction: row;
+      }
+
+      .hero-actions .btn {
+        min-width: 170px;
+      }
+
+      .menu-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .testimonial-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .contact-info {
+        padding: 60px;
+      }
+
+      .contact-form-box {
+        padding: 60px;
+      }
+    }
+
+    @media (min-width: 900px) {
+      .section {
+        padding: 110px 0;
+      }
+
+      .menu-button,
+      .mobile-nav {
+        display: none;
+      }
+
+      .desktop-nav {
+        display: flex;
+      }
+
+      .nav-order {
+        display: inline-block;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (min-width: 1100px) {
+      .hero h1 {
+        font-size: 7.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+
+  <header id="header">
+    <div class="container">
+      <nav>
+        <a href="#hero" class="logo">
+          Victor Wonder <span>Bakery</span>
+        </a>
+
+        <ul class="desktop-nav">
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li>
+            <a class="nav-order" href="#contact">Order Now</a>
+          </li>
+        </ul>
+
+        <button
+          class="menu-button"
+          id="menuButton"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+      </nav>
+    </div>
+
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#hero">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#about">About</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </header>
+
+
+  <!-- ================= HERO ================= -->
+
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-content">
+
+        <span class="hero-badge">
+          Freshly baked in Agbado, Lagos
+        </span>
+
+        <h1>
+          Baked with love.
+          <br>
+          Made for <span>you.</span>
+        </h1>
+
+        <p class="hero-description">
+          Fresh bread, delicious pastries and beautiful cakes made every day
+          at Victor Wonder Bakery. Come taste the difference.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#menu" class="btn btn-primary">
+            Explore Our Menu
+          </a>
+
+          <a href="#contact" class="btn btn-secondary">
+            Place an Order
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================= MENU ================= -->
+
+  <section class="section" id="menu">
+    <div class="container">
+
+      <div class="menu-heading">
+        <span class="eyebrow">Our Menu</span>
+
+        <h2 class="section-title">
+          Fresh from our oven.
+        </h2>
+
+        <p class="section-text">
+          From breakfast favourites to sweet treats, everything is prepared
+          with care and baked fresh for our customers.
+        </p>
+      </div>
+
+      <div class="menu-grid">
+
+        <!-- Menu Item 1 -->
+        <article class="menu-card">
+          <img
+            src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=85"
+            alt="Freshly baked bread"
+          >
+
+          <div class="menu-info">
+            <div class="menu-top">
+              <h3 class="menu-name">Fresh Bread</h3>
+              <span class="menu-price">₦1,500</span>
+            </div>
+
+            <p class="menu-description">
+              Soft, fresh and delicious bread baked daily for your breakfast
+              and family meals.
+            </p>
+
+            <a href="#contact" class="order-link">
+              Order now →
+            </a>
+          </div>
+        </article>
+
+
+        <!-- Menu Item 2 -->
+        <article class="menu-card">
+          <img
+            src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=900&q=85"
+            alt="Fresh croissants"
+          >
+
+          <div class="menu-info">
+            <div class="menu-top">
+              <h3 class="menu-name">Butter Croissant</h3>
+              <span class="menu-price">₦2,500</span>
+            </div>
+
+            <p class="menu-description">
+              Golden, flaky and buttery pastries perfect with your morning
+              tea or coffee.
+            </p>
+
+            <a href="#contact" class="order-link">
+              Order now →
+            </a>
+          </div>
+        </article>
+
+
+        <!-- Menu Item 3 -->
+        <article class="menu-card">
+          <img
+            src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=85"
+            alt="Chocolate celebration cake"
+          >
+
+          <div class="menu-info">
+            <div class="menu-top">
+              <h3 class="menu-name">Celebration Cake</h3>
+              <span class="menu-price">₦18,000</span>
+            </div>
+
+            <p class="menu-description">
+              Beautiful, rich and delicious cakes made specially for your
+              celebrations.
+            </p>
+
+            <a href="#contact" class="order-link">
+              Order now →
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================= ABOUT ================= -->
+
+  <section class="section about" id="about">
+    <div class="container">
+
+      <div class="about-grid">
+
+        <div class="about-image-wrap">
+          <img
+            class="about-image"
+            src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&w=1200&q=85"
+            alt="Bakery interior"
+          >
+
+          <div class="about-stat">
+            <strong>100%</strong>
+            <span>Freshly baked</span>
+          </div>
+        </div>
+
+
+        <div class="about-copy">
+
+          <span class="eyebrow">About Victor Wonder Bakery</span>
+
+          <h2 class="section-title">
+            A little bakery with a big heart.
+          </h2>
+
+          <p>
+            Victor Wonder Bakery is a local bakery proudly serving the
+            Agbado community in Lagos with fresh, delicious and affordable
+            baked goods.
+          </p>
+
+          <p>
+            We believe good food brings people together. That's why every
+            loaf, pastry and cake we make is prepared with care and attention
+            to quality.
+          </p>
+
+          <div class="about-features">
+
+            <div class="about-feature">
+              <strong>Fresh</strong>
+              <span>Baked daily</span>
+            </div>
+
+            <div class="about-feature">
+              <strong>Quality</strong>
+              <span>Great ingredients</span>
+            </div>
+
+            <div class="about-feature">
+              <strong>Local</strong>
+              <span>Made in Agbado</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================= TESTIMONIALS ================= -->
+
+  <section class="section testimonials" id="testimonials">
+    <div class="container">
+
+      <div class="testimonial-heading">
+
+        <span class="eyebrow">Testimonials</span>
+
+        <h2 class="section-title">
+          Loved by our customers.
+        </h2>
+
+        <p class="section-text" style="margin-left:auto;margin-right:auto;">
+          We're grateful for every customer who makes Victor Wonder Bakery
+          part of their day.
+        </p>
+
+      </div>
+
+
+      <div class="testimonial-grid">
+
+        <article class="testimonial">
+          <div class="stars">★★★★★</div>
+
+          <p class="testimonial-text">
+            "The bread is always fresh and soft. Victor Wonder Bakery has
+            become my family's favourite place to buy bread."
+          </p>
+
+          <div class="customer">
+            <strong>Amaka O.</strong>
+            <span>Agbado, Lagos</span>
+          </div>
+        </article>
+
+
+        <article class="testimonial">
+          <div class="stars">★★★★★</div>
+
+          <p class="testimonial-text">
+            "I ordered a cake for my daughter's birthday and everyone loved
+            it. Beautiful, fresh and delicious!"
+          </p>
+
+          <div class="customer">
+            <strong>Sarah A.</strong>
+            <span>Agbado, Lagos</span>
+          </div>
+        </article>
+
+
+        <article class="testimonial">
+          <div class="stars">★★★★★</div>
+
+          <p class="testimonial-text">
+            "Great customer service and really tasty pastries. I definitely
+            recommend Victor Wonder Bakery."
+          </p>
+
+          <div class="customer">
+            <strong>David K.</strong>
+            <span>Lagos</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================= CONTACT ================= -->
+
+  <section class="section contact-section" id="contact">
+    <div class="container">
+
+      <div class="contact-box">
+
+        <div class="contact-grid">
+
+          <!-- Contact Information -->
+
+          <div class="contact-info">
+
+            <span class="eyebrow">Contact Us</span>
+
+            <h2 class="section-title">
+              Ready for something delicious?
+            </h2>
+
+            <p>
+              Place an order, ask a question or enquire about a cake for your
+              next celebration. Send us a message on WhatsApp and we'll get
+              back to you.
+            </p>
+
+
+            <div class="contact-details">
+
+              <div class="contact-detail">
+                <strong>📍 Address</strong>
+                <span>
+                  85, Clem Road, Agbado, Lagos
+                </span>
+              </div>
+
+
+              <div class="contact-detail">
+                <strong>📞 Phone / WhatsApp</strong>
+                <a href="tel:08125821584">
+                  08125821584
+                </a>
+              </div>
+
+
+              <div class="contact-detail">
+                <strong>💬 WhatsApp</strong>
+                <a
+                  href="https://wa.me/2348125821584"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Chat with us on WhatsApp
+                </a>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- Contact Form -->
+
+          <div class="contact-form-box">
+
+            <h3>Send us a message</h3>
+
+            <form class="contact-form" id="whatsappForm">
+
+              <input
+                class="form-control"
+                type="text"
+                id="name"
+                placeholder="Your name"
+                required
+              >
+
+              <input
+                class="form-control"
+                type="tel"
+                id="phone"
+                placeholder="Your phone number"
+                required
+              >
+
+              <select
+                class="form-control"
+                id="order"
+                required
+              >
+                <option value="">What would you like?</option>
+                <option value="Fresh Bread">Fresh Bread</option>
+                <option value="Butter Croissant">Butter Croissant</option>
+                <option value="Celebration Cake">Celebration Cake</option>
+                <option value="Custom Order">Custom Order</option>
+              </select>
+
+              <textarea
+                class="form-control"
+                id="message"
+                placeholder="Tell us what you'd like to order..."
+                required
+              ></textarea>
+
+              <button
+                type="submit"
+                class="submit"
+              >
+                Send via WhatsApp
+              </button>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+    <div class="container">
+      <p>
+        © <span id="year"></span> Victor Wonder Bakery.
+        Made with love in Agbado, Lagos.
+      </p>
+    </div>
+  </footer>
+
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script>
+    // Mobile navigation
+    const menuButton = document.getElementById("menuButton");
+    const mobileNav = document.getElementById("mobileNav");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = mobileNav.classList.toggle("open");
+
+      menuButton.setAttribute("aria-expanded", isOpen);
+
+      menuButton.textContent = isOpen ? "×" : "☰";
+    });
+
+
+    // Close mobile menu when a link is clicked
+    document.querySelectorAll(".mobile-nav a").forEach(link => {
+      link.addEventListener("click", () => {
+        mobileNav.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.textContent = "☰";
+      });
+    });
+
+
+    // Header background on scroll
+    const header = document.getElementById("header");
+
+    function updateHeader() {
+      if (window.scrollY > 40) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    }
+
+    window.addEventListener("scroll", updateHeader);
+    updateHeader();
+
+
+    // WhatsApp contact form
+    const whatsappForm = document.getElementById("whatsappForm");
+
+    whatsappForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const order = document.getElementById("order").value;
+      const message = document.getElementById("message").value.trim();
+
+      const whatsappNumber = "2348125821584";
+
+      const whatsappMessage =
+        "Hello Victor Wonder Bakery!%0A%0A" +
+        "*New Order / Enquiry*%0A" +
+        "Name: " + encodeURIComponent(name) + "%0A" +
+        "Phone: " + encodeURIComponent(phone) + "%0A" +
+        "Order: " + encodeURIComponent(order) + "%0A" +
+        "Message: " + encodeURIComponent(message);
+
+      const whatsappURL =
+        "https://wa.me/" + whatsappNumber + "?text=" + whatsappMessage;
+
+      window.open(whatsappURL, "_blank");
+    });
+
+
+    // Current year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+  </html>
